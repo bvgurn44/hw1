@@ -128,7 +128,8 @@ CREATE TABLE studios (
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
-    movie_id INTEGER
+    movie_id INTEGER,
+    character_id INTEGER
 );
 
 CREATE TABLE characters (
@@ -141,6 +142,68 @@ CREATE TABLE characters (
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+INSERT INTO movies (
+    title,
+    year,
+    rating
+
+)
+VALUES (
+   "Batman Begins",
+   "2005",
+   "PG-13"
+)
+VALUES (
+    "The Dark Knight",
+    "2008",
+    "PG-13"
+)
+VALUES (
+    "The Dark Knight Rises",
+    "2012",
+    "PG-13"
+);
+
+INSERT INTO studios (
+    name
+)
+
+VALUES (
+    "Warner Bros."
+)
+
+INSERT INTO actors (
+    name
+)
+
+VALUES ("Christian Bale")
+VALUES ("Michael Caine")
+VALUES ("Liam Neeson")
+VALUES ("Katie Holmes")
+VALUES ("Gary Oldman") 
+VALUES ("Heath Ledger")
+VALUES ("Aaron Eckhart")
+VALUES ("Maggie Gyllenhall")
+VALUES ("Tom Hardy")
+VALUES ("Joseph Gordon-Levitt")
+VALUES ("Anne Hathaway")
+VALUES ("Morgan Freeman");
+
+INSERT INTO characters (
+    name
+)
+
+VALUES("Bruce Wayne")
+VALUES("Alfred")
+VALUES("Ra's Al Ghul")
+VALUES("Rachel Dawes")
+VALUES("Commissioner Gordon")
+VALUES("Joker")
+VALUES("Harvey Dent")
+VALUES("Bane")
+VALUES("John Blake")
+VALUES("Selina Kyle")
+VALUES("Lucius Fox")
 
 -- Prints a header for the movies output
 .print "Movies"
