@@ -152,12 +152,12 @@ VALUES (
    'Batman Begins',
    '2005',
    'PG-13'
-)
+),
 VALUES (
     'The Dark Knight',
     '2008',
     'PG-13'
-)
+),
 VALUES (
     'The Dark Knight Rises',
     '2012',
@@ -177,33 +177,33 @@ INSERT INTO actors (
     character_id
 )
 
-VALUES ('Christian Bale', 1)
-VALUES ('Michael Caine', 2)
-VALUES ('Liam Neeson', 3)
-VALUES ('Katie Holmes', 4)
-VALUES ('Gary Oldman', 5) 
-VALUES ('Heath Ledger', 6)
-VALUES ('Aaron Eckhart', 7)
-VALUES ('Maggie Gyllenhall', 4)
-VALUES ('Tom Hardy', 8)
-VALUES ('Joseph Gordon-Levitt', 9)
-VALUES ('Anne Hathaway', 10)
+VALUES ('Christian Bale', 1),
+VALUES ('Michael Caine', 2),
+VALUES ('Liam Neeson', 3),
+VALUES ('Katie Holmes', 4),
+VALUES ('Gary Oldman', 5),
+VALUES ('Heath Ledger', 6),
+VALUES ('Aaron Eckhart', 7),
+VALUES ('Maggie Gyllenhall', 4),
+VALUES ('Tom Hardy', 8),
+VALUES ('Joseph Gordon-Levitt', 9),
+VALUES ('Anne Hathaway', 10),
 VALUES ('Morgan Freeman', 11);
 
 INSERT INTO characters (
     character_name
 )
 
-VALUES('Bruce Wayne')
-VALUES('Alfred')
-VALUES("Ra's Al Ghul")
-VALUES('Rachel Dawes')
-VALUES('Commissioner Gordon')
-VALUES('Joker')
-VALUES('Harvey Dent')
-VALUES('Bane')
-VALUES('John Blake')
-VALUES('Selina Kyle')
+VALUES('Bruce Wayne'),
+VALUES('Alfred'),
+VALUES("Ra's Al Ghul"),
+VALUES('Rachel Dawes'),
+VALUES('Commissioner Gordon'),
+VALUES('Joker'),
+VALUES('Harvey Dent'),
+VALUES('Bane'),
+VALUES('John Blake'),
+VALUES('Selina Kyle'),
 VALUES('Lucius Fox');
 
 -- Prints a header for the movies output
@@ -214,7 +214,7 @@ VALUES('Lucius Fox');
 -- The SQL statement for the movies output
 -- TODO!
 SELECT title, year, rating
-FROM movies
+FROM movies;
 
 
 -- Prints a header for the cast output
