@@ -122,19 +122,19 @@ CREATE TABLE movies (
 
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT
+    studio_name TEXT
 );
 
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
+    actor_name TEXT,
     movie_id INTEGER,
     character_id INTEGER
 );
 
 CREATE TABLE characters (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
+    character_name TEXT,
     actor_id INTEGER,
     movie_id INTEGER
 );
@@ -142,68 +142,69 @@ CREATE TABLE characters (
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
-INSERT INTO movies (
-    title,
-    year,
-    rating
 
+INSERT INTO movies (
+  title,
+  year,
+  rating
 )
 VALUES (
-   "Batman Begins",
-   "2005",
-   "PG-13"
+   'Batman Begins',
+   '2005',
+   'PG-13'
 )
 VALUES (
-    "The Dark Knight",
-    "2008",
-    "PG-13"
+    'The Dark Knight',
+    '2008',
+    'PG-13'
 )
 VALUES (
-    "The Dark Knight Rises",
-    "2012",
-    "PG-13"
+    'The Dark Knight Rises',
+    '2012',
+    'PG-13'
 );
 
 INSERT INTO studios (
-    name
+    studio_name
 )
 
 VALUES (
-    "Warner Bros."
-)
+    'Warner Bros.'
+);
 
 INSERT INTO actors (
-    name
+    actor_name,
+    character_id
 )
 
-VALUES ("Christian Bale")
-VALUES ("Michael Caine")
-VALUES ("Liam Neeson")
-VALUES ("Katie Holmes")
-VALUES ("Gary Oldman") 
-VALUES ("Heath Ledger")
-VALUES ("Aaron Eckhart")
-VALUES ("Maggie Gyllenhall")
-VALUES ("Tom Hardy")
-VALUES ("Joseph Gordon-Levitt")
-VALUES ("Anne Hathaway")
-VALUES ("Morgan Freeman");
+VALUES ('Christian Bale', 1)
+VALUES ('Michael Caine', 2)
+VALUES ('Liam Neeson', 3)
+VALUES ('Katie Holmes', 4)
+VALUES ('Gary Oldman', 5) 
+VALUES ('Heath Ledger', 6)
+VALUES ('Aaron Eckhart', 7)
+VALUES ('Maggie Gyllenhall', 4)
+VALUES ('Tom Hardy', 8)
+VALUES ('Joseph Gordon-Levitt', 9)
+VALUES ('Anne Hathaway', 10)
+VALUES ('Morgan Freeman', 11);
 
 INSERT INTO characters (
-    name
+    character_name
 )
 
-VALUES("Bruce Wayne")
-VALUES("Alfred")
+VALUES('Bruce Wayne')
+VALUES('Alfred')
 VALUES("Ra's Al Ghul")
-VALUES("Rachel Dawes")
-VALUES("Commissioner Gordon")
-VALUES("Joker")
-VALUES("Harvey Dent")
-VALUES("Bane")
-VALUES("John Blake")
-VALUES("Selina Kyle")
-VALUES("Lucius Fox")
+VALUES('Rachel Dawes')
+VALUES('Commissioner Gordon')
+VALUES('Joker')
+VALUES('Harvey Dent')
+VALUES('Bane')
+VALUES('John Blake')
+VALUES('Selina Kyle')
+VALUES('Lucius Fox');
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -212,6 +213,9 @@ VALUES("Lucius Fox")
 
 -- The SQL statement for the movies output
 -- TODO!
+SELECT title, year, rating
+FROM movies
+
 
 -- Prints a header for the cast output
 .print ""
