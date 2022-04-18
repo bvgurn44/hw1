@@ -122,19 +122,19 @@ CREATE TABLE movies (
 
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    studio_name TEXT
+    name TEXT
 );
 
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    actor_name TEXT,
+    name TEXT,
     movie_id INTEGER,
     character_id INTEGER
 );
 
 CREATE TABLE characters (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    character_name TEXT,
+    name TEXT,
     actor_id INTEGER,
     movie_id INTEGER
 );
@@ -153,19 +153,19 @@ VALUES (
    '2005',
    'PG-13'
 ),
-VALUES (
+(
     'The Dark Knight',
     '2008',
     'PG-13'
 ),
-VALUES (
+(
     'The Dark Knight Rises',
     '2012',
     'PG-13'
 );
 
 INSERT INTO studios (
-    studio_name
+    name
 )
 
 VALUES (
@@ -173,38 +173,40 @@ VALUES (
 );
 
 INSERT INTO actors (
-    actor_name,
+    name,
     character_id
 )
 
-VALUES ('Christian Bale', 1),
-VALUES ('Michael Caine', 2),
-VALUES ('Liam Neeson', 3),
-VALUES ('Katie Holmes', 4),
-VALUES ('Gary Oldman', 5),
-VALUES ('Heath Ledger', 6),
-VALUES ('Aaron Eckhart', 7),
-VALUES ('Maggie Gyllenhall', 4),
-VALUES ('Tom Hardy', 8),
-VALUES ('Joseph Gordon-Levitt', 9),
-VALUES ('Anne Hathaway', 10),
-VALUES ('Morgan Freeman', 11);
+VALUES 
+('Christian Bale', 1),
+('Michael Caine', 2),
+('Liam Neeson', 3),
+('Katie Holmes', 4),
+('Gary Oldman', 5),
+('Heath Ledger', 6),
+('Aaron Eckhart', 7),
+('Maggie Gyllenhall', 4),
+('Tom Hardy', 8),
+('Joseph Gordon-Levitt', 9),
+('Anne Hathaway', 10),
+('Morgan Freeman', 11);
 
 INSERT INTO characters (
-    character_name
+    name
 )
 
-VALUES('Bruce Wayne'),
-VALUES('Alfred'),
-VALUES("Ra's Al Ghul"),
-VALUES('Rachel Dawes'),
-VALUES('Commissioner Gordon'),
-VALUES('Joker'),
-VALUES('Harvey Dent'),
-VALUES('Bane'),
-VALUES('John Blake'),
-VALUES('Selina Kyle'),
-VALUES('Lucius Fox');
+VALUES
+('Bruce Wayne'),
+('Alfred'),
+("Ra's Al Ghul"),
+('Rachel Dawes'),
+('Commissioner Gordon'),
+('Joker'),
+('Harvey Dent'),
+('Bane'),
+('John Blake'),
+('Selina Kyle'),
+('Lucius Fox');
 
 -- Prints a header for the movies output
 .print "Movies"
