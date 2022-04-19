@@ -139,6 +139,12 @@ CREATE TABLE characters (
     movie_id INTEGER
 );
 
+CREATE TABLE movies_characters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    character_id INTEGER,
+    movie_id INTEGER
+);
+
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
@@ -196,12 +202,12 @@ VALUES
 ('Morgan Freeman', 11);
 
 INSERT INTO characters (
-    name
+    name,
 )
 
 VALUES
 ('Bruce Wayne'),
-('Alfred'),
+('Alfred')
 ("Ra's Al Ghul"),
 ('Rachel Dawes'),
 ('Commissioner Gordon'),
@@ -211,6 +217,33 @@ VALUES
 ('John Blake'),
 ('Selina Kyle'),
 ('Lucius Fox');
+
+INSERT INTO movies_characters (
+    character_id,
+    movie_id
+)
+
+VALUES
+(1,1),
+(1,2),
+(1,3),
+(2,1),
+(2,2),
+(2,3),
+(3,1),
+(4,1),
+(4,2),
+(5,1),
+(5,2),
+(5,3),
+(6,2),
+(7,2),
+(8,3),
+(9,3),
+(10,3),
+(11,1),
+(11,2),
+(11,3);
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -234,6 +267,7 @@ INNER JOIN movies ON movies.studio_id = studios.id;
 -- The SQL statement for the cast output
 -- TODO!
 SELECT movies.title, actors.name, characters.name
-FROM movies
-INNER JOIN movies ON movies.actor_id = actors.id
-INNER JOIN characters ON characters.id = actors.character_id;
+FROM movies_characters
+INNER JOIN characters ON movies_characters.character_id = characters.id
+INNER JOIN movies ON movies_characters.movie_id = movies.id
+INNER JOIN characters ON actors.character_id=characters.id;
