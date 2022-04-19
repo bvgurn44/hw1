@@ -146,22 +146,26 @@ CREATE TABLE characters (
 INSERT INTO movies (
   title,
   year,
-  rating
+  rating,
+  studio_id
 )
 VALUES (
    'Batman Begins',
    '2005',
-   'PG-13'
+   'PG-13',
+   1
 ),
 (
     'The Dark Knight',
     '2008',
-    'PG-13'
+    'PG-13',
+    1
 ),
 (
     'The Dark Knight Rises',
     '2012',
-    'PG-13'
+    'PG-13',
+    1
 );
 
 INSERT INTO studios (
@@ -215,8 +219,9 @@ VALUES
 
 -- The SQL statement for the movies output
 -- TODO!
-SELECT title, year, rating
-FROM movies;
+SELECT movies.title, movies.year, movies.rating, studios.name
+FROM studios
+INNER JOIN movies ON movies.studio_id = studios.id;
 
 
 -- Prints a header for the cast output
@@ -228,3 +233,7 @@ FROM movies;
 
 -- The SQL statement for the cast output
 -- TODO!
+SELECT movies.title, actors.name, characters.name
+FROM movies
+INNER JOIN movies ON movies.actor_id = actors.id
+INNER JOIN characters ON characters.id = actors.character_id;
