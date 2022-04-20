@@ -108,17 +108,18 @@ DROP TABLE IF EXISTS characters;
 
 
 
+
 -- Create new tables, according to your domain model
 -- TODO!
+
 CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT,
   year TEXT,
   rating TEXT,
   studio_id INTEGER,
-  actor_id INTEGER,
-  character_id INTEGER
-);
+  actor_id INTEGER
+   );
 
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -135,15 +136,10 @@ CREATE TABLE actors (
 CREATE TABLE characters (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
-    actor_id INTEGER,
-    movie_id INTEGER
+    movie_id INTEGER,
+    actor_id INTEGER
 );
 
-CREATE TABLE movies_characters (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    character_id INTEGER,
-    movie_id INTEGER
-);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
@@ -183,67 +179,50 @@ VALUES (
 );
 
 INSERT INTO actors (
-    name,
-    character_id
+    name
 )
 
 VALUES 
-('Christian Bale', 1),
-('Michael Caine', 2),
-('Liam Neeson', 3),
-('Katie Holmes', 4),
-('Gary Oldman', 5),
-('Heath Ledger', 6),
-('Aaron Eckhart', 7),
-('Maggie Gyllenhall', 4),
-('Tom Hardy', 8),
-('Joseph Gordon-Levitt', 9),
-('Anne Hathaway', 10),
-('Morgan Freeman', 11);
+('Christian Bale'),
+('Michael Caine'),
+('Liam Neeson'),
+('Katie Holmes'),
+('Gary Oldman'),
+('Heath Ledger'),
+('Aaron Eckhart'),
+('Maggie Gyllenhall'),
+('Tom Hardy'),
+('Joseph Gordon-Levitt'),
+('Anne Hathaway'),
+('Morgan Freeman');
 
 INSERT INTO characters (
     name,
+    movie_id,
+    actor_id
 )
-
 VALUES
-('Bruce Wayne'),
-('Alfred')
-("Ra's Al Ghul"),
-('Rachel Dawes'),
-('Commissioner Gordon'),
-('Joker'),
-('Harvey Dent'),
-('Bane'),
-('John Blake'),
-('Selina Kyle'),
-('Lucius Fox');
+('Bruce Wayne', 1, 1),
+('Bruce Wayne', 2, 1),
+('Bruce Wayne', 3, 1),
+('Alfred', 1, 2),
+('Alfred', 2, 2),
+('Alfred', 3, 2),
+("Ra's Al Ghul", 1, 3),
+('Rachel Dawes', 1, 4),
+('Rachel Dawes', 2, 8),
+('Commissioner Gordon', 1, 5),
+('Commissioner Gordon', 2, 5),
+('Commissioner Gordon', 3, 5),
+('Joker', 2, 6),
+('Harvey Dent', 2, 7),
+('Bane', 3, 9),
+('John Blake', 3, 10),
+('Selina Kyle', 3, 11),
+('Lucius Fox', 1, 12),
+('Lucius Fox', 2, 12),
+('Lucius Fox', 3, 12);
 
-INSERT INTO movies_characters (
-    character_id,
-    movie_id
-)
-
-VALUES
-(1,1),
-(1,2),
-(1,3),
-(2,1),
-(2,2),
-(2,3),
-(3,1),
-(4,1),
-(4,2),
-(5,1),
-(5,2),
-(5,3),
-(6,2),
-(7,2),
-(8,3),
-(9,3),
-(10,3),
-(11,1),
-(11,2),
-(11,3);
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -267,7 +246,7 @@ INNER JOIN movies ON movies.studio_id = studios.id;
 -- The SQL statement for the cast output
 -- TODO!
 SELECT movies.title, actors.name, characters.name
-FROM movies_characters
-INNER JOIN characters ON movies_characters.character_id = characters.id
-INNER JOIN movies ON movies_characters.movie_id = movies.id
-INNER JOIN characters ON actors.character_id=characters.id;
+FROM characters
+INNER JOIN movies ON characters.movie_id = movies.id
+INNER JOIN actors ON characters.actor_id = actors.id
+ORDER BY movies.title, actors.id;
