@@ -97,6 +97,7 @@
 
 -- Turns column mode on but headers off
 .mode column
+.width 21, 20, 19
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
